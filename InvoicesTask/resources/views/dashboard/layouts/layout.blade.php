@@ -1,12 +1,4 @@
-<!--
- * CoreUI - Open Source Bootstrap Admin Template
- * @version v1.0.0-alpha.2
- * @link http://coreui.io
- * Copyright (c) 2016 creativeLabs Łukasz Holeczek
- * @license MIT
- -->
- <!DOCTYPE html>
- <html lang="IR-fa" dir="rtl">
+
  
  @include('dashboard.layouts.header')
  <!-- BODY options, add following classes to body to change options
@@ -19,18 +11,15 @@
          4. 'navbar-fixed'		  - Fixed navbar
      -->
  
- <body class="navbar-fixed sidebar-nav fixed-nav">
+
     @include('dashboard.layouts.navbar')
     @include('dashboard.layouts.sidebar')
 
 
      @yield('main_content')
-
-     <!-- Main content -->
-     {{-- <main class="main"> --}}
     
-     @include('dashboard.layouts.main_side_bar')
-
+     <!-- Main content -->
+     
 
 
      @include('dashboard.layouts.footer')

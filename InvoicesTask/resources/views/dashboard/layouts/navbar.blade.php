@@ -1,3 +1,14 @@
+
+<!--
+ * CoreUI - Open Source Bootstrap Admin Template
+ * @version v1.0.0-alpha.2
+ * @link http://coreui.io
+ * Copyright (c) 2016 creativeLabs Łukasz Holeczek
+ * @license MIT
+ -->
+ <!DOCTYPE html>
+ <html lang="IR-fa" dir="rtl">
+<body class="navbar-fixed sidebar-nav fixed-nav">
 <header class="navbar">
     <div class="container-fluid">
         <button class="navbar-toggler mobile-toggler hidden-lg-up" type="button">&#9776;</button>

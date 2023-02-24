@@ -13,24 +13,24 @@
                 قائمة العملاء 
               </li>
              <li class="nav-item">
-                <a class="nav-link" href="#"><i class="icon-user"></i> العملاء</a>
-                <a class="nav-link" href="#"><i class="icon-user-following"></i> إضافة عميل جديد</a>
+                <a class="nav-link" href="{{ url('/',$page='coustomers') }}"><i class="icon-user"></i> العملاء</a>
+                <a class="nav-link" href="{{ route('create.coustomer') }}"><i class="icon-user-following"></i> إضافة عميل جديد</a>
             </li>
 
             <li class="nav-title">
               قائمة المنتجات 
             </li>
-             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="icon-docs"></i> المنتجات</a>
-                <a class="nav-link" href="#"><i class="icon-plus"></i> إضافة منتج جديد</a>
+             <li class="nav-item"> 
+                <a class="nav-link" href="{{ url('/',$page='products') }}"><i class="icon-docs"></i> المنتجات</a>
+                <a class="nav-link" href="{{ route('create.product') }}"><i class="icon-plus"></i> إضافة منتج جديد</a>
             </li>
 
             <li class="nav-title">
                 قائمة المبيعات
             </li>
              <li class="nav-item">
-                 <a class="nav-link" href="#"><i class="icon-docs"></i>المبيعات </a>
-                 <a class="nav-link" href="#"><i class="icon-plus"></i> إضافة فاتوره جديدة</a>
+                 <a class="nav-link" href="{{ url('/',$page='invoices') }}"><i class="icon-docs"></i>المبيعات </a>
+                 <a class="nav-link" href="{{ route('create.invoice') }}"><i class="icon-plus"></i> إضافة فاتوره جديدة</a>
             </li>
             <!--<li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i> ثبت کاربر جدید</a>

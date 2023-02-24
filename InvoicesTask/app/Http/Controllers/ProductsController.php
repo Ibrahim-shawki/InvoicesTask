@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\coustomer;
+use App\Models\products;
 use Illuminate\Http\Request;
 
-class CoustomerController extends Controller
+class ProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('coustomers.coustomers');
+        return view('products.products');
     }
 
     /**
@@ -20,8 +20,7 @@ class CoustomerController extends Controller
      */
     public function create()
     {
-        return view('coustomers.create');
-        
+        return view('products.create');
     }
 
     /**
@@ -35,7 +34,7 @@ class CoustomerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(coustomer $coustomer)
+    public function show(products $products)
     {
         //
     }
@@ -43,7 +42,7 @@ class CoustomerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(coustomer $coustomer)
+    public function edit(products $products)
     {
         //
     }
@@ -51,7 +50,7 @@ class CoustomerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, coustomer $coustomer)
+    public function update(Request $request, products $products)
     {
         //
     }
@@ -59,7 +58,7 @@ class CoustomerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(coustomer $coustomer)
+    public function destroy(products $products)
     {
         //
     }
