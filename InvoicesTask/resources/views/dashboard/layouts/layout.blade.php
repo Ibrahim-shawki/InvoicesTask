@@ -27,11 +27,10 @@
      @yield('main_content')
 
      <!-- Main content -->
-
-
- 
      {{-- <main class="main"> --}}
+    
      @include('dashboard.layouts.main_side_bar')
+
 
 
      @include('dashboard.layouts.footer')
