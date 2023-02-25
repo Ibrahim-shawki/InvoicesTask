@@ -19,7 +19,7 @@
      @yield('main_content')
     
      <!-- Main content -->
-     
+
 
 
      @include('dashboard.layouts.footer')

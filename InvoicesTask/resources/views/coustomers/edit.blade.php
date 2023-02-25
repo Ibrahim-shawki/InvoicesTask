@@ -6,8 +6,8 @@
 
     <!-- Breadcrumb -->
     <ol class="breadcrumb">
-        <li class="breadcrumb-item">إضافة </li>
-        <li class="breadcrumb-item"><a href="{{ route('create.coustomer') }}">عميل جديد</a>
+        <li class="breadcrumb-item">تعديل </li>
+        <li class="breadcrumb-item"><a href="#">بيانات العميل</a>
         </li>
         <!-- Breadcrumb Menu-->
         {{-- <li class="breadcrumb-menu">
@@ -37,27 +37,28 @@
                     <strong>Error !</strong> {{ session('error') }}
                 </div>
             @endif           
-                <form class="container-fluid " action="{{ route('coustomers.store') }} " method="post">
+                <form class="container-fluid " action="{{ route('coustomers.update',$coustomer->id) }} " method="post">
                     @csrf
+                    @method('PUT')
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">إسم العميل</label>
-                      <input type="text" class="form-control"name="name">
+                      <input type="text" class="form-control"name="name" value="{{ $coustomer->name }}">
                     </div>
                     <div class="mb-3 form-check">
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">العنوان</label>
-                      <input type="text" class="form-control" name="title">
+                      <input type="text" class="form-control" name="title" value="{{ $coustomer->title }}">
                     </div>
                     <div class="mb-3 form-check">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">البريد الإلكتروني</label>
-                        <input type="email" class="form-control" name="email">
+                        <input type="email" class="form-control" name="email" value="{{ $coustomer->email }}">
                     </div>
                     <div class="mb-3 form-check">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </form>
             </div>
     

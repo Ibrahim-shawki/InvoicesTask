@@ -12,7 +12,8 @@ class CoustomerController extends Controller
      */
     public function index()
     {
-        return view('coustomers.coustomers');
+        $coustomers = coustomer::all();
+        return view('coustomers.coustomers',compact('coustomers'));
     }
 
     /**
@@ -29,7 +30,22 @@ class CoustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /*
+        $coustomer = New coustomer();
+        $coustomer->name = $request->name;
+        $coustomer->title = $request->title;
+        $coustomer->email = $request->email;
+        $coustomer->save();
+        return ('hello');
+        */
+        coustomer::create([
+            'name'=>$request->name,
+            'title'=>$request->title,
+            'email'=>$request->email,
+        ]);
+        
+        return redirect()->route('coustomers.create')->with('success', 'User Add successfully.');
+
     }
 
     /**
@@ -43,24 +59,32 @@ class CoustomerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(coustomer $coustomer)
+    public function edit($id)
     {
-        //
+       $coustomer = coustomer::findorFail($id);
+       return view('coustomers.edit',compact('coustomer'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, coustomer $coustomer)
+    public function update(Request $request, $id)
     {
-        //
+        $coustomer = coustomer::findorFail($id);
+        $coustomer->name = $request->name;
+        $coustomer->title = $request->title;
+        $coustomer->email = $request->email;
+        $coustomer->save();
+        return redirect()->route('coustomers.edit',$coustomer->id)->with('success', 'User Update successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(coustomer $coustomer)
+    public function destroy( $id)
     {
-        //
+        coustomer::findorFail($id)->delete();
+        return redirect()->route('coustomers.index')->with('error', 'User Delete successfully.');
+        
     }
 }
