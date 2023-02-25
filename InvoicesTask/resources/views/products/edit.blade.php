@@ -42,13 +42,13 @@
                 @csrf
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">إسم الصنف</label>
-                  <input type="text" class="form-control"name="name">
+                  <input type="text" class="form-control"name="name" value="{{ $products->name }}">
                 </div>
                 <div class="mb-3 form-check">
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">سعر الصنف</label>
-                  <input type="number" class="form-control" name="price">
+                  <input type="number" class="form-control" name="price" value="{{ $products->price }}">
                 </div>
                 <div class="mb-3 form-check">
                 </div>

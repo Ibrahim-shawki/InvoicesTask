@@ -12,7 +12,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        return view('products.products');
+        $products = products::all();
+        return view('products.products',compact('products'));
     }
 
     /**
@@ -28,7 +29,12 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        products::create([
+            'name'=>$request->name,
+            'price'=>$request->price,
+        ]);
+        return redirect()->route('products.create')->with('success', 'Product Add successfully.');
+
     }
 
     /**
@@ -42,24 +48,31 @@ class ProductsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(products $products)
+    public function edit( $id)
     {
-        //
+        $products = products::findorFail($id);
+        return view('products.edit',compact('products'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, products $products)
+    public function update(Request $request, $id)
     {
-        //
+        $products = products::findorFail($id);
+        $products->name = $request->name;
+        $products->title = $request->title;
+        $products->email = $request->email;
+        $products->save();
+        return redirect()->route('products.edit',$products->id)->with('success', 'Product Update successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(products $products)
+    public function destroy($id)
     {
-        //
+        products::findorFail($id)->delete();
+        return redirect()->route('products.index')->with('error', 'Product Delete successfully.');
     }
 }

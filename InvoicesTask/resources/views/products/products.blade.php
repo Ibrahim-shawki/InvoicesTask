@@ -3,7 +3,9 @@
 @section('title','المنتجات')
 @section('main_content')
 <main class="main">
-
+<?php
+    $id = 1;
+?>
     <!-- Breadcrumb -->
     <ol class="breadcrumb">
         <li class="breadcrumb-item">قسم </li>
@@ -18,7 +20,57 @@
             </div>
         </li> --}}
     </ol>
+    <div class="contianer container-fluid ">
+        <table class="table ">
 
+                        {{-- Message --}}
+        @if (Session::has('success'))
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert">
+                <i class="fa fa-times"></i>
+            </button>
+            <strong>Success !</strong> {{ session('success') }}
+        </div>
+    @endif
+
+    @if (Session::has('error'))
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert">
+                <i class="fa fa-times"></i>
+            </button>
+            <strong>Error !</strong> {{ session('error') }}
+        </div>
+    @endif  
+            <thead>
+                <tr>
+                    <th scope="col">عدد الأصناف</th>
+                    <th scope="col">اسم الصنف</th>
+                    <th scope="col">سعر الصنف</th>
+                    <th scope="col">تعديل الصنف</th>
+                    <th scope="col">حذف الصنف</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  
+                  @foreach ($products as $product)
+                <th scope="row"><?php echo $id++?></th>
+                <td>{{ $product->name }}</td>
+                <td>{{ $product->price }}</td>
+                {{-- <td><button type="button" class="btn btn-success">Success</button></td> --}}
+                <td><a class="btn btn-success" href="{{ route('products.edit',$product->id) }}" role="button">تعديل الصنف</a></td>
+                <td>
+                    <form action="{{ route('products.destroy',$product->id) }}" method="post">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn btn-danger">حذف الصنف</button>
+                    </form>
+                </td>
+              </tr>
+            </tbody>
+            @endforeach
+          </table>
+    </div>
 
     <!--/.container-fluid-->
 </main>
